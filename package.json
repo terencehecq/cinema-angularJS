@@ -26,19 +26,10 @@
     "grunt-usemin": "^3.0.0",
     "grunt-wiredep": "^2.0.0",
     "jit-grunt": "^0.9.1",
-    "jshint-stylish": "^1.0.0",
-    "nodemon": "^2.0.2",
-    "time-grunt": "^1.0.0"
+    "time-grunt": "^1.0.0",
+    "jshint-stylish": "^1.0.0"
   },
   "engines": {
     "node": ">=0.10.0"
-  },
-  "scripts":{
-    "dev" : "concurrently \"nodemon server/server.js\" \"grunt serve\""
-  },
-  "dependencies": {
-    "express": "^4.17.1",
-    "generator-karma": "^2.0.1",
-    "moviedb": "^0.2.10"
   }
 }
