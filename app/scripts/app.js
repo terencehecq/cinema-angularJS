@@ -10,16 +10,21 @@
  */
 angular
   .module('cinemaAngularJsApp', [
-    'ngRoute'
+    'ngRoute', 'ui.bootstrap'
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+      .when('/popular', {
+        templateUrl: 'views/movies.html',
+        controller: 'PopularCtrl',
+        controllerAs: 'popular'
+      })
+      .when('/search/:query', {
+        templateUrl: 'views/movies.html',
+        controller: 'SearchCtrl',
+        controllerAs: 'search'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/popular'
       });
   });
