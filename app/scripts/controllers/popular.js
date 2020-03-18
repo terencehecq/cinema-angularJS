@@ -11,18 +11,20 @@ angular.module('cinemaAngularJsApp')
   .controller('PopularCtrl', function ($scope, serviceAjax) {
     $scope.currentPage = 1;
     $scope.totalPages = 0;
+    $scope.loading = true;
 
-    const loadMovies = () => {
+    const loadMovies = function(){
       $scope.loading = true;
       serviceAjax
         .popular($scope.currentPage)
-        .then((res) => {
-          $scope.movies = res.data.results;
-          $scope.totalPages = res.data.total_pages;
+        .then(function(res){
+          let data = res.data;
           $scope.loading = false;
+          $scope.movies = data.results;
+          $scope.totalPages = data.total_pages;
         })
-        .catch((err) => {console.log(err)})
-    }
+        .catch(function(err){console.log(err);});
+    };
 
     $scope.pageChanged = function(){
       loadMovies();
