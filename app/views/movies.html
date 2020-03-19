@@ -1,6 +1,10 @@
+<div class="row" ng-show="movies.length > 1">
+    <a ng-click="clickPredicateName()" class="col-md-offset-7 col-md-2">Trier par nom</a>
+    <a ng-click="clickPredicateRate()" class="col-md-2">Trier par note</a>
+</div>
 <div class="movies-container" id="top" loading="loading">
     <ul class="movies list-group">
-        <li ng-repeat="movie in movies" class="list-group-item">
+        <li ng-repeat="movie in movies | orderBy : orderByPredicate : orderByReverse" class="list-group-item">
             <div class="row">
                 <div class="col-md-4">
                     <img ng-src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}" width="200" height="300"/>
