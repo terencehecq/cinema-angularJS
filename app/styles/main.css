@@ -55,19 +55,19 @@ body {
 }
 
 .header form input::-webkit-input-placeholder {
-  color: #aaa;
+  color: black;
 }
 
 .header form input:-ms-input-placeholder {
-  color: #aaa;
+  color: black;
 }
 
 .header form input::-ms-input-placeholder {
-  color: #aaa;
+  color: black;
 }
 
 .header form input::placeholder {
-  color: #aaa;
+  color: black;
 }
 
 .header form .searchBtn {
@@ -85,27 +85,159 @@ body {
   outline: 0;
   padding: 3px 0;
   font-size: 1.8rem;
-  color: #aaa;
+  color: black;
 }
 
 .header form .searchBtn:hover button {
   color: #FF8043;
 }
 
-.pageTitle {
+.listBanner {
   position: fixed;
   top: 70px;
   padding: 10px;
   width: 100%;
   z-index: 99;
-  background-color: #1F1F1F;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(85%, #1f1f1f), to(rgba(255, 255, 255, 0)));
+  background: linear-gradient(180deg, #1f1f1f 85%, rgba(255, 255, 255, 0) 100%);
 }
 
-.pageTitle h2 {
+.listBanner h2 {
   color: #FF8043;
   text-align: center;
   font-size: 4rem;
   font-weight: lighter;
-  top: 80px;
+  margin-top: 8px;
+  margin-bottom: 15px;
+}
+
+.listBanner .listFilters {
+  position: absolute;
+  bottom: -10px;
+  right: 10px;
+}
+
+.listBanner .listFilters a {
+  margin: 0 10px;
+  cursor: pointer;
+  color: #FF8043;
+}
+
+.listContainer {
+  padding-top: 15vh;
+  width: 80%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.listContainer .movieCard {
+  position: relative;
+  width: 21%;
+  margin: 20px 0;
+  padding: 1px;
+  border-radius: 5px;
+  -webkit-box-shadow: 15px 15px 20px #171717,  -15px -15px 20px #272727;
+          box-shadow: 15px 15px 20px #171717,  -15px -15px 20px #272727;
+}
+
+.listContainer .movieCard .moviePoster {
+  width: 100%;
+  margin: 0 0 15px;
+  background-image: url(../images/no_poster.png);
+  background-size: contain;
+  height: 24.8vw;
+  border-radius: 5px;
+}
+
+.listContainer .movieCard .moviePoster img {
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+}
+
+.listContainer .movieCard .movieDetails {
+  margin: 0 8px;
+  color: #777;
+}
+
+.listContainer .movieCard .movieDetails h4 a {
+  color: #FF8043;
+  font-size: 2rem;
+}
+
+.listContainer .movieCard .movieDetails > p {
+  margin-bottom: 30px;
+}
+
+.listContainer .movieCard .movieDetails .movieRating {
+  position: absolute;
+  right: 5px;
+  bottom: -5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: right;
+}
+
+.listContainer .movieCard .movieDetails span {
+  color: #ffc62a;
+  margin-right: 3px;
+  font-size: 1.5rem;
+}
+
+.listPagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 50px 0 100px;
+}
+
+.listPagination ul {
+  display: block;
+  margin: 0 auto;
+}
+
+.listPagination ul > li > a {
+  background-color: #1F1F1F;
+  color: #FF8043;
+  border-color: #555;
+}
+
+.listPagination ul > li > a:hover {
+  background-color: #FF8043;
+  color: black;
+  border-color: #FF8043;
+}
+
+.listPagination ul > li.active > a {
+  background-color: #FF8043;
+  color: black;
+  border-color: #FF8043;
+}
+
+.listPagination ul > li.active > a:hover {
+  background-color: #FF8043;
+  color: black;
+  border-color: #FF8043;
+}
+
+.listPagination ul > li.disabled > a {
+  background-color: #1F1F1F;
+  color: #555;
+  border-color: #555;
+}
+
+.listPagination ul > li.disabled > a:hover {
+  background-color: #1F1F1F;
+  color: #555;
+  border-color: #555;
 }
 /*# sourceMappingURL=main.css.map */

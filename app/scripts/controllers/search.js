@@ -8,7 +8,7 @@
  * Controller of the cinemaAngularJsApp
  */
 angular.module('cinemaAngularJsApp')
-    .controller('SearchCtrl', function ($scope, $routeParams, serviceAjax) { // Use "function" because ()=>{} pops an error
+    .controller('SearchCtrl', function ($scope, $routeParams, serviceAjax) {
         $scope.title = "Search results"
         $scope.query = $routeParams.query;
         $scope.currentPage = 1;
