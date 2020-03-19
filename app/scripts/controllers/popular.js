@@ -9,21 +9,21 @@
  */
 angular.module('cinemaAngularJsApp')
   .controller('PopularCtrl', function ($scope, serviceAjax) {
-    $scope.currentPage = 1;
+    $scope.pagination = { currentPage: 1 };
     $scope.totalPages = 0;
     $scope.loading = true;
 
     const loadMovies = function(){
       $scope.loading = true;
       serviceAjax
-        .popular($scope.currentPage)
+        .popular($scope.pagination.currentPage)
         .then(function(res){
           let data = res.data;
-          $scope.loading = false;
           $scope.movies = data.results;
           $scope.totalPages = data.total_pages;
+          $scope.loading = false;
         })
-        .catch(function(err){console.log(err);});
+        .catch(function(err){console.log(err)});
     };
 
     $scope.pageChanged = function(){
