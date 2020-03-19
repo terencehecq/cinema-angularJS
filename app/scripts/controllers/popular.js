@@ -9,6 +9,7 @@
  */
 angular.module('cinemaAngularJsApp')
   .controller('PopularCtrl', function ($scope, serviceAjax) {
+    $scope.title = "Popular movies"
     $scope.pagination = { currentPage: 1 };
     $scope.totalPages = 0;
     $scope.loading = true;
@@ -43,4 +44,5 @@ angular.module('cinemaAngularJsApp')
     }
 
     loadMovies();
-  });
+  }); 
+  

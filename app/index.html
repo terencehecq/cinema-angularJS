@@ -9,6 +9,8 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <script src="https://kit.fontawesome.com/cf5b420eb5.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -20,28 +22,24 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
+    <!-- -- HEADER -- -->
     <div class="header">
-      <ul class="nav nav-pills pull-right">
-        <li class="active"><a ng-href="#">Films populaires</a></li>
-      </ul>
-      <h3 class="text-muted">Le cinéma avec Angular</h3>
-      <div class="row">
-        <form class="form-horizontal col-md-6 col-md-offset-3" role="form" ng-controller="HeaderCtrl">
-            <div class="input-group">
-                <input ng-model="query" type="text" class="form-control" placeholder="Recherchez un film...">
-            <span class="input-group-btn">
-              <button type="submit" class="btn btn-default glyphicon glyphicon-search" type="button" ng-click="searchAction()"></button>
-            </span>
-            </div>
-        </form>
-    </div>
+
+      <a href="#!"><img src="images/movie.png" alt="Movie bobbin"></a>
+      <form role="form" ng-controller="HeaderCtrl">
+        <input ng-model="query" type="text" placeholder="Recherchez un film...">
+        <div class="searchBtn"><button type="submit" ng-click="searchAction()"><i class="fas fa-search"></i></button></div>
+      </form>
+  
   </div>
 
-    <div class="container">
-    <div ng-view></div>
+  <!-- -- CONTENT -- -->
+    <div ng-view>
+      <!-- C'est ici que viennent se placer les views -->
     </div>
 
+
+    <!-- -- FOOTER -- -->
     <div class="footer">
       <div class="container">
         <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>

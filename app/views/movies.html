@@ -1,35 +1,39 @@
-<div class="row" ng-show="movies.length > 1">
-    <a ng-click="clickPredicateName()" class="col-md-offset-7 col-md-2">Trier par nom</a>
-    <a ng-click="clickPredicateRate()" class="col-md-2">Trier par note</a>
-</div>
-<div class="movies-container" id="top" loading="loading">
-    <ul class="movies list-group">
-        <li ng-repeat="movie in movies | orderBy : orderByPredicate : orderByReverse" class="list-group-item">
-            <div class="row">
-                <div class="col-md-4">
-                    <img ng-src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}" width="200" height="300"/>
-                </div>
-                <div class="col-md-8">
-                    <a ng-href="#!/info/{{movie.id}}"><h4 ng-bind="movie.title"></h4></a>
-                    <div class="row">
-                        <label class="col-md-2">Année:</label>
-                        <span class="col-md-8" ng-bind="movie.release_date | date:'yyyy'"></span>
+<div class="pageTitle"><h2>{{title}}</h2></div>
+
+<div class="content">
+    <div class="row" ng-show="movies.length > 1">
+        <a ng-click="clickPredicateName()" class="col-md-offset-7 col-md-2">Trier par nom</a>
+        <a ng-click="clickPredicateRate()" class="col-md-2">Trier par note</a>
+    </div>
+    <div class="movies-container" id="top" loading="loading">
+        <ul class="movies list-group">
+            <li ng-repeat="movie in movies | orderBy : orderByPredicate : orderByReverse" class="list-group-item">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img ng-src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}" width="200" height="300"/>
                     </div>
-                    <div class="row">
-                        <label class="col-md-2">Note:</label>
-                        <div class="row col-md-10">
-                            <!-- <rating class="col-md-6" ng-model="movie.vote_average" max="10" readonly="true"></rating> -->
-                            <span uib-rating class="col-md-8" ng-model="movie.vote_average" max="10" read-only="true"></span>
-                            (<span ng-bind="movie.vote_count"></span>&nbspavis)
+                    <div class="col-md-8">
+                        <a ng-href="#!/info/{{movie.id}}"><h4 ng-bind="movie.title"></h4></a>
+                        <div class="row">
+                            <label class="col-md-2">Année:</label>
+                            <span class="col-md-8" ng-bind="movie.release_date | date:'yyyy'"></span>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-2">Note:</label>
+                            <div class="row col-md-10">
+                                <!-- <rating class="col-md-6" ng-model="movie.vote_average" max="10" readonly="true"></rating> -->
+                                <span uib-rating class="col-md-8" ng-model="movie.vote_average" max="10" read-only="true"></span>
+                                (<span ng-bind="movie.vote_count"></span>&nbspavis)
+                            </div>
                         </div>
                     </div>
                 </div>
+            </li>
+        </ul>
+        <div class="row">
+            <div class="col-md-9 col-md-offset-3"> 
+                <ul uib-pagination ng-model="pagination.currentPage" ng-change="pageChanged()" max-size="5" total-items="totalPages" boundary-links="true"></ul>
             </div>
-        </li>
-    </ul>
-    <div class="row">
-        <div class="col-md-9 col-md-offset-3"> 
-            <ul uib-pagination ng-model="pagination.currentPage" ng-change="pageChanged()" max-size="5" total-items="totalPages" boundary-links="true"></ul>
         </div>
     </div>
 </div>
