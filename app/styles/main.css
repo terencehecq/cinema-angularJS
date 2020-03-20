@@ -44,11 +44,11 @@ body {
 
 .header form input {
   margin: 0;
-  background-color: #666;
+  background-color: #555;
   border: none;
   padding: 5px;
   font-size: 1.5rem;
-  color: #eee;
+  color: #111;
   outline: 0;
   border-radius: 3px 0 0 3px;
   width: 85%;
@@ -72,10 +72,9 @@ body {
 
 .header form .searchBtn {
   display: inline-block;
-  margin: 0;
   width: 10%;
   height: 3.1rem;
-  background-color: #666;
+  background-color: #555;
   border-radius: 0 3px 3px 0;
 }
 
@@ -83,8 +82,9 @@ body {
   background-color: transparent;
   border: none;
   outline: 0;
-  padding: 3px 0;
-  font-size: 1.8rem;
+  height: 100%;
+  width: 100%;
+  font-size: 1.9rem;
   color: black;
 }
 
@@ -113,14 +113,38 @@ body {
 
 .listBanner .listFilters {
   position: absolute;
-  bottom: -10px;
-  right: 10px;
+  bottom: 20px;
+  right: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.listBanner .listFilters a {
+.listBanner .listFilters .filterTitle {
   margin: 0 10px;
-  cursor: pointer;
+  font-weight: 400;
   color: #FF8043;
+}
+
+.listBanner .listFilters .selectBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #555;
+  height: 30px;
+  border-color: #555;
+  border-radius: 2px;
+  outline: 0;
+  color: black;
+}
+
+.listBanner .listFilters select {
+  background-color: transparent;
+  border: none;
+  outline: 0;
 }
 
 .listContainer {
@@ -139,8 +163,10 @@ body {
 .listContainer .movieCard {
   position: relative;
   width: 21%;
-  margin: 20px 0;
+  min-width: 210px;
+  margin: 20px 10px;
   padding: 1px;
+  border: 1px solid rgba(20, 20, 20, 0.3);
   border-radius: 5px;
   -webkit-box-shadow: 15px 15px 20px #171717,  -15px -15px 20px #272727;
           box-shadow: 15px 15px 20px #171717,  -15px -15px 20px #272727;
@@ -151,7 +177,8 @@ body {
   margin: 0 0 15px;
   background-image: url(../images/no_poster.png);
   background-size: contain;
-  height: 24.8vw;
+  height: 24.5vw;
+  min-height: 300px;
   border-radius: 5px;
 }
 
@@ -177,17 +204,40 @@ body {
 .listContainer .movieCard .movieDetails .movieRating {
   position: absolute;
   right: 5px;
-  bottom: -5px;
+  bottom: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-align: right;
+  width: 90%;
 }
 
-.listContainer .movieCard .movieDetails span {
-  color: #ffc62a;
-  margin-right: 3px;
-  font-size: 1.5rem;
+.listContainer .movieCard .movieDetails .movieRating p {
+  margin-bottom: 0;
+}
+
+.listContainer .movieCard .movieDetails .total {
+  display: inline-block;
+  background-color: black;
+  width: 70%;
+  height: 14px;
+  margin-right: 5px;
+  border-radius: 5px;
+}
+
+.listContainer .movieCard .movieDetails .rating {
+  height: 100%;
+  background-color: #4ba700;
+  border-radius: 5px 0 0 5px;
+}
+
+.listContainer .movieCard .movieDetails .rating p {
+  font-size: 1.1rem;
+  padding-right: 3px;
+  color: white;
 }
 
 .listPagination {
@@ -239,5 +289,46 @@ body {
   background-color: #1F1F1F;
   color: #555;
   border-color: #555;
+}
+
+div.movieSingle {
+  width: 70%;
+  max-width: 1000px;
+  margin: 10vh auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid rgba(20, 20, 20, 0.3);
+  border-radius: 5px;
+  -webkit-box-shadow: 20px 20px 30px #171717,  -20px -20px 30px #272727;
+          box-shadow: 20px 20px 30px #171717,  -20px -20px 30px #272727;
+}
+
+div.movieSingle .singlePoster {
+  width: 35%;
+}
+
+div.movieSingle .singlePoster img {
+  width: 100%;
+}
+
+div.movieSingle .singleDetails {
+  width: 65%;
+  padding: 0 20px;
+}
+
+div.movieSingle .singleDetails h2 {
+  color: #FF8043;
+}
+
+div.movieSingle .singleDetails .date {
+  color: #ddd;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+div.movieSingle .singleDetails h4 {
+  color: #FF8043;
+  font-weight: lighter;
 }
 /*# sourceMappingURL=main.css.map */

@@ -9,12 +9,13 @@
  */
 angular.module('cinemaAngularJsApp')
   .controller('PopularCtrl', function ($scope, serviceAjax) {
-    $scope.title = "Popular movies"
+    $scope.title = "Films populaires"
     $scope.pagination = { currentPage: 1 };
     $scope.totalPages = 0;
     $scope.loading = true;
-    $scope.orderByPredicate = "title";
-    $scope.orderByReverse = false;
+    $scope.order = '';
+    // $scope.orderByPredicate = "title";
+    // $scope.orderByReverse = false;
 
     const loadMovies = function(){
       $scope.loading = true;
@@ -33,15 +34,15 @@ angular.module('cinemaAngularJsApp')
       loadMovies();
     };
 
-    $scope.clickPredicateName = function(){
-      $scope.orderByReverse = !$scope.orderByReverse;
-      $scope.orderByPredicate = 'title';
-    }
+    // $scope.clickPredicateName = function(){
+    //   $scope.orderByReverse = !$scope.orderByReverse;
+    //   $scope.orderByPredicate = 'title';
+    // }
 
-    $scope.clickPredicateRate = function(){
-      $scope.orderByReverse = !$scope.orderByReverse;
-      $scope.orderByPredicate = 'vote_average';
-    }
+    // $scope.clickPredicateRate = function(){
+    //   $scope.orderByReverse = !$scope.orderByReverse;
+    //   $scope.orderByPredicate = 'vote_average';
+    // }
 
     loadMovies();
   }); 

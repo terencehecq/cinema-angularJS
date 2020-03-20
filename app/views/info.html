@@ -1,27 +1,17 @@
-<div class="movie_detail" loading="loading">
-    <div class="row">
-        <div class="col-md-4">
-            <img ng-src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}" width="200" height="300"/>
+<div loading="loading">
+    <div class="movieSingle">
+        <div class="singlePoster">
+            <img ng-src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}"/>
         </div>
-        <div class="col-md-8">
-            <dl class="dl-horizontal">
-                <dt>Genre</dt>
-                <dd>
-                    <ul>
-                        <li ng-repeat="genre in movie.genres">{{genre.name}}</li>
-                    </ul>
-                </dd>
-                <dt>Synopsis</dt>
-                <dd>{{movie.overview}}</dd>
-                <dt>Origine</dt>
-                <dd>
-                    <ul>
-                        <li ng-repeat="production in movie.production_countries">{{production.name}}</li>
-                    </ul>
-                </dd>
-                <dt>Date</dt>
-                <dd>{{movie.release_date | date: 'yyyy'}}</dd>
-            </dl>
+        <div class="singleDetails">
+            <h2>{{movie.title}}</h2>
+            <p class="date">{{movie.release_date | date: 'dd/MM/yyyy'}}</p>
+            <h4>Genre(s):</h4>
+            <ul>
+                <li ng-repeat="genre in movie.genres">{{genre.name}}</li>
+            </ul>
+            <h4>Synopsis :</h4>
+            <p>{{movie.overview}}</p>
         </div>
     </div>
 </div>
