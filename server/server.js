@@ -34,11 +34,11 @@ app.get("/similar/:id", (req, res) => {
 
 app.get('/info/:id',  (req, res) => {
     let id = req.params.id;
-    mdb.movieInfo({id: id}, (err, data)=>{
+    mdb.movieInfo({id: id}, (err, data) => {
         res.send(data);
     });
 });
 
-app.listen(3000,  () => {
+app.listen(3000, () => {
     console.log("Listening 3000")
 });
