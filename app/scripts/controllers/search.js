@@ -14,10 +14,9 @@ angular.module('cinemaAngularJsApp')
         $scope.currentPage = 1;
         $scope.totalPages = 0;
         $scope.loading = true;
-        $scope.orderByPredicate = "title";
-        $scope.orderByReverse = false;
+        $scope.order = '';
 
-        var loadMovies = function(){ 
+        const loadMovies = function(){ 
             $scope.loading = true;
             serviceAjax
             .search($scope.query, $scope.currentPage)
@@ -33,16 +32,6 @@ angular.module('cinemaAngularJsApp')
         $scope.pageChanged = function(){
             loadMovies();
         };
-
-        $scope.clickPredicateName = function(){
-            $scope.orderByReverse = !$scope.orderByReverse;
-            $scope.orderByPredicate = 'title';
-        }
-
-        $scope.clickPredicateRate = function(){
-            $scope.orderByReverse = !$scope.orderByReverse;
-            $scope.orderByPredicate = 'vote_average';
-        }
         
         loadMovies();
     });

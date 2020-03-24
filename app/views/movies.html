@@ -26,9 +26,8 @@
                 <h4><a ng-href="#!/info/{{movie.id}}">{{movie.title}}</a></h4>
                 <p class="movieOverview">{{movie.overview.split(" ").slice(0, 20).join(" ")}} ...</p>
                 <div class="movieRating">
-                    <!-- <span uib-rating ng-bind="movie.vote_average/2" max="5" read-only="true"></span> -->
                     <div class="total">
-                    <div class="rating" ng-style="{width: movie.vote_average * 10 + '%'}"><p>{{movie.vote_average*10}}%</p></div>
+                        <div class="rating" ng-style="{width: movie.vote_average * 10 + '%'}"><p>{{movie.vote_average*10}}%</p></div>
                     </div>
                     <p>({{movie.vote_count}})</p>
                 </div>

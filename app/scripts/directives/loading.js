@@ -17,8 +17,8 @@ angular.module('cinemaAngularJsApp')
           loading: "=loading"
       },
       compile: function compile(element, attrs, transclude){
-        var spinner = new Spinner().spin();
-        var loadingContainer = element.find(".loading-container")[0];
+        let spinner = new Spinner().spin();
+        let loadingContainer = element.find(".loading-container")[0];
         loadingContainer.appendChild(spinner.el);
     }
   }

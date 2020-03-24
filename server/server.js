@@ -1,44 +1,44 @@
-var mdb = require('moviedb')('5192eb6331a3db50b6b388ae8941edc6');
-var app = require('express')();
+const mdb = require('moviedb')('5192eb6331a3db50b6b388ae8941edc6');
+const app = require('express')();
 
-app.all('*', function(req, res, next) {
+app.all('*', (req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
 
-app.get('/popular', function(req, res){
-    var page = (req.query["page"]) ? req.query["page"] : 1;
+app.get('/popular', (req, res) => {
+    let page = (req.query["page"]) ? req.query["page"] : 1;
     page = (req.query["page"] > 1000) ? 1000 : req.query["page"];
-    mdb.miscPopularMovies({page: page}, function(err, data){
+    mdb.miscPopularMovies({page: page}, (err, data) => {
         data.total_pages = 1000;
         res.send(data)
     });
 });
 
-app.get('/search', function (req, res) {
-    var query = req.query["q"];
-    var page = (req.query["page"]) ? req.query["page"] : 1;
-    mdb.searchMovie({query: query, page: page}, function(err, data){
+app.get('/search',  (req, res) => {
+    let query = req.query["q"];
+    let page = (req.query["page"]) ? req.query["page"] : 1;
+    mdb.searchMovie({query: query, page: page}, (err, data) => {
         res.send(data)
     });
 })
 
-app.get("/similar/:id", function(req, res){
-   var id = req.params.id;
-   var page = (req.query["page"]) ? req.query["page"] : 1;
-    mdb.movieSimilar({id: id, page: page}, function(err, data){
+app.get("/similar/:id", (req, res) => {
+   let id = req.params.id;
+   let page = (req.query["page"]) ? req.query["page"] : 1;
+    mdb.movieSimilar({id: id, page: page}, (err, data) => {
         res.send(data);
     });
 });
 
-app.get('/info/:id', function (req, res) {
-    var id = req.params.id;
-    mdb.movieInfo({id: id}, function(err, data){
+app.get('/info/:id',  (req, res) => {
+    let id = req.params.id;
+    mdb.movieInfo({id: id}, (err, data)=>{
         res.send(data);
     });
 });
 
-app.listen(3000, function () {
+app.listen(3000,  () => {
     console.log("Listening 3000")
 });

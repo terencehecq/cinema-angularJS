@@ -9,7 +9,7 @@
  */
 angular.module('cinemaAngularJsApp')
 .controller('InfoCtrl', function ($scope, $routeParams, serviceAjax) {
-  var id = $routeParams.id;
+  let id = $routeParams.id;
   $scope.loading = true;
   serviceAjax.info(id).then(function(res){
     $scope.loading = false;
